@@ -10,6 +10,7 @@ if test ! -f /etc/ssh/keys/ssh_host_ecdsa_key ; then
 	echo "Generating ECDSA HostKey ..."
 	ssh-keygen -t ecdsa -f /etc/ssh/keys/ssh_host_ecdsa_key -N "" -q
 fi
+chmod -R 600 /etc/ssh/keys
 
 mkdir -p /repos
 deluser borg 2> /dev/null
