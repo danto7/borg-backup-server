@@ -26,7 +26,7 @@ if test ! -f /repofile ; then
 fi
 mkdir -p /repos/.ssh
 cat /repofile | awk -F ";" '{ print "/repos/"$1 }' | xargs mkdir -p
-cat /repofile | awk -F ";" '{ print "command=\"borg serve --restrict-to-path=/repos/"$1"\",restrict "$2 }' > /repos/.ssh/authorized_keys
+cat /repofile | awk -F ";" '{ print $2 }' > /repos/.ssh/authorized_keys
 chmod 600 /repos/.ssh/authorized_keys
 chown borg:borg /repos/.ssh/authorized_keys
 
